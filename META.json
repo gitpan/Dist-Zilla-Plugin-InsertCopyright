@@ -1,0 +1,74 @@
+{
+   "abstract" : "Insert copyright statement into source code files",
+   "author" : [
+      "David Golden <dagolden@cpan.org>"
+   ],
+   "dynamic_config" : 0,
+   "generated_by" : "Dist::Zilla version 4.200009, CPAN::Meta::Converter version 2.110930",
+   "license" : [
+      "apache_2_0"
+   ],
+   "meta-spec" : {
+      "url" : "http://search.cpan.org/perldoc?CPAN::Meta::Spec",
+      "version" : "2"
+   },
+   "name" : "Dist-Zilla-Plugin-InsertCopyright",
+   "no_index" : {
+      "directory" : [
+         "t",
+         "xt",
+         "examples",
+         "corpus"
+      ],
+      "package" : [
+         "DB"
+      ]
+   },
+   "prereqs" : {
+      "configure" : {
+         "requires" : {
+            "ExtUtils::MakeMaker" : "6.30"
+         }
+      },
+      "runtime" : {
+         "requires" : {
+            "Dist::Zilla::Role::FileMunger" : 0,
+            "Moose" : 0,
+            "PPI::Document" : 0,
+            "perl" : "5.008001",
+            "utf8" : 0
+         }
+      },
+      "test" : {
+         "requires" : {
+            "File::Find" : 0,
+            "File::Temp" : 0,
+            "File::pushd" : "1.00",
+            "Path::Class" : 0,
+            "Test::DZil" : 0,
+            "Test::More" : "0.92"
+         }
+      }
+   },
+   "provides" : {
+      "Dist::Zilla::Plugin::InsertCopyright" : {
+         "file" : "lib/Dist/Zilla/Plugin/InsertCopyright.pm",
+         "version" : "0.001"
+      }
+   },
+   "release_status" : "stable",
+   "resources" : {
+      "bugtracker" : {
+         "mailto" : "bug-dist-zilla-plugin-insertcopyright at rt.cpan.org",
+         "web" : "http://rt.cpan.org/Public/Dist/Display.html?Name=Dist-Zilla-Plugin-InsertCopyright"
+      },
+      "homepage" : "http://github.com/dagolden/dist-zilla-plugin-insertcopyright",
+      "repository" : {
+         "type" : "git",
+         "url" : "http://github.com/dagolden/dist-zilla-plugin-insertcopyright",
+         "web" : "http://github.com/dagolden/dist-zilla-plugin-insertcopyright"
+      }
+   },
+   "version" : "0.001"
+}
+
