@@ -9,35 +9,56 @@ use ExtUtils::MakeMaker 6.30;
 
 
 my %WriteMakefileArgs = (
-  'ABSTRACT' => 'Insert copyright statement into source code files',
-  'AUTHOR' => 'David Golden <dagolden@cpan.org>',
-  'BUILD_REQUIRES' => {
-    'File::Find' => '0',
-    'File::Temp' => '0',
-    'File::pushd' => '1.00',
-    'Path::Class' => '0',
-    'Test::DZil' => '0',
-    'Test::More' => '0.92'
+  "ABSTRACT" => "Insert copyright statement into source code files",
+  "AUTHOR" => "David Golden <dagolden\@cpan.org>",
+  "BUILD_REQUIRES" => {},
+  "CONFIGURE_REQUIRES" => {
+    "ExtUtils::MakeMaker" => "6.30"
   },
-  'CONFIGURE_REQUIRES' => {
-    'ExtUtils::MakeMaker' => '6.30'
+  "DISTNAME" => "Dist-Zilla-Plugin-InsertCopyright",
+  "EXE_FILES" => [],
+  "LICENSE" => "apache",
+  "NAME" => "Dist::Zilla::Plugin::InsertCopyright",
+  "PREREQ_PM" => {
+    "Carp" => 0,
+    "Dist::Zilla::Role::FileMunger" => 0,
+    "Moose" => 0,
+    "PPI::Document" => 0,
+    "strict" => 0,
+    "utf8" => 0,
+    "warnings" => 0
   },
-  'DISTNAME' => 'Dist-Zilla-Plugin-InsertCopyright',
-  'EXE_FILES' => [],
-  'LICENSE' => 'apache',
-  'NAME' => 'Dist::Zilla::Plugin::InsertCopyright',
-  'PREREQ_PM' => {
-    'Dist::Zilla::Role::FileMunger' => '0',
-    'Moose' => '0',
-    'PPI::Document' => '0',
-    'utf8' => '0'
+  "TEST_REQUIRES" => {
+    "Capture::Tiny" => 0,
+    "ExtUtils::MakeMaker" => 0,
+    "File::Spec::Functions" => 0,
+    "File::Temp" => 0,
+    "File::pushd" => "1.00",
+    "List::Util" => 0,
+    "Path::Class" => 0,
+    "Test::DZil" => 0,
+    "Test::More" => "0.92",
+    "blib" => 0
   },
-  'VERSION' => '0.001',
-  'test' => {
-    'TESTS' => 't/*.t'
+  "VERSION" => "0.002",
+  "test" => {
+    "TESTS" => "t/*.t"
   }
 );
 
+
+unless ( eval { ExtUtils::MakeMaker->VERSION(6.63_03) } ) {
+  my $tr = delete $WriteMakefileArgs{TEST_REQUIRES};
+  my $br = $WriteMakefileArgs{BUILD_REQUIRES};
+  for my $mod ( keys %$tr ) {
+    if ( exists $br->{$mod} ) {
+      $br->{$mod} = $tr->{$mod} if $tr->{$mod} > $br->{$mod};
+    }
+    else {
+      $br->{$mod} = $tr->{$mod};
+    }
+  }
+}
 
 unless ( eval { ExtUtils::MakeMaker->VERSION(6.56) } ) {
   my $br = delete $WriteMakefileArgs{BUILD_REQUIRES};

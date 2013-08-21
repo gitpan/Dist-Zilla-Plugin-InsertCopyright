@@ -4,13 +4,12 @@ use warnings;
 use utf8;
 
 package Dist::Zilla::Plugin::InsertCopyright;
-BEGIN {
-  $Dist::Zilla::Plugin::InsertCopyright::VERSION = '0.001';
-}
 # ABSTRACT: Insert copyright statement into source code files
+our $VERSION = '0.002'; # VERSION
 
 use PPI::Document;
 use Moose;
+use Carp qw/croak/;
 
 with 'Dist::Zilla::Role::FileMunger';
 
@@ -82,9 +81,11 @@ no Moose;
 #   The Apache License, Version 2.0, January 2004
 #
 
-
+__END__
 
 =pod
+
+=encoding utf-8
 
 =head1 NAME
 
@@ -92,7 +93,7 @@ Dist::Zilla::Plugin::InsertCopyright - Insert copyright statement into source co
 
 =head1 VERSION
 
-version 0.001
+version 0.002
 
 =head1 SYNOPSIS
 
@@ -149,28 +150,32 @@ L<Dist::Zilla::Plugin::Prepender>
 
 =back
 
-=for :stopwords cpan testmatrix url annocpan anno bugtracker rt cpants kwalitee diff irc mailto metadata placeholders
+=for :stopwords cpan testmatrix url annocpan anno bugtracker rt cpants kwalitee diff irc mailto metadata placeholders metacpan
 
 =head1 SUPPORT
 
 =head2 Bugs / Feature Requests
 
-Please report any bugs or feature requests by email to C<bug-dist-zilla-plugin-insertcopyright at rt.cpan.org>, or through
-the web interface at L<http://rt.cpan.org/Public/Dist/Display.html?Name=Dist-Zilla-Plugin-InsertCopyright>. You will be automatically notified of any
-progress on the request by the system.
+Please report any bugs or feature requests through the issue tracker
+at L<https://github.com/dagolden/dist-zilla-plugin-insertcopyright/issues>.
+You will be notified automatically of any progress on your issue.
 
 =head2 Source Code
 
 This is open source software.  The code repository is available for
 public review and contribution under the terms of the license.
 
-L<http://github.com/dagolden/dist-zilla-plugin-insertcopyright>
+L<https://github.com/dagolden/dist-zilla-plugin-insertcopyright>
 
-  git clone http://github.com/dagolden/dist-zilla-plugin-insertcopyright
+  git clone git://github.com/dagolden/dist-zilla-plugin-insertcopyright.git
 
 =head1 AUTHOR
 
 David Golden <dagolden@cpan.org>
+
+=head1 CONTRIBUTOR
+
+Jean-Damien Durand <jeandamiendurand@free.fr>
 
 =head1 COPYRIGHT AND LICENSE
 
@@ -181,8 +186,3 @@ This is free software, licensed under:
   The Apache License, Version 2.0, January 2004
 
 =cut
-
-
-__END__
-
-
