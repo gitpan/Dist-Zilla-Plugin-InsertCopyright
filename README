@@ -3,7 +3,7 @@ NAME
     source code files
 
 VERSION
-    version 0.002
+    version 0.003
 
 SYNOPSIS
     In your dist.ini:
@@ -32,7 +32,7 @@ DESCRIPTION
 ACKNOWLEDGMENTS
     Code in this module is based heavily on
     Dist::Zilla::Plugin::OurPkgVersion by Caleb Cushing and
-    Dist::Zilla::Plugin::Prepender by JÃ©rÃ´me Quelin. Thank you to both of
+    Dist::Zilla::Plugin::Prepender by Jérôme Quelin. Thank you to both of
     them for their work and for releasing it as open source for reuse.
 
 SEE ALSO
@@ -45,16 +45,16 @@ SEE ALSO
 SUPPORT
   Bugs / Feature Requests
     Please report any bugs or feature requests through the issue tracker at
-    <https://github.com/dagolden/dist-zilla-plugin-insertcopyright/issues>.
+    <https://github.com/dagolden/Dist-Zilla-Plugin-InsertCopyright/issues>.
     You will be notified automatically of any progress on your issue.
 
   Source Code
     This is open source software. The code repository is available for
     public review and contribution under the terms of the license.
 
-    <https://github.com/dagolden/dist-zilla-plugin-insertcopyright>
+    <https://github.com/dagolden/Dist-Zilla-Plugin-InsertCopyright>
 
-      git clone git://github.com/dagolden/dist-zilla-plugin-insertcopyright.git
+      git clone https://github.com/dagolden/Dist-Zilla-Plugin-InsertCopyright.git
 
 AUTHOR
     David Golden <dagolden@cpan.org>

@@ -5,7 +5,7 @@ use utf8;
 
 package Dist::Zilla::Plugin::InsertCopyright;
 # ABSTRACT: Insert copyright statement into source code files
-our $VERSION = '0.002'; # VERSION
+our $VERSION = '0.003'; # VERSION
 
 use PPI::Document;
 use Moose;
@@ -16,9 +16,11 @@ with 'Dist::Zilla::Role::FileMunger';
 # -- public methods
 
 sub munge_file {
-    my ($self, $file) = @_;
+    my ( $self, $file ) = @_;
 
-    return $self->_munge_perl($file) if $file->name    =~ /\.(?:pm|pl|t)$/i;
+    return if $file->encoding eq 'bytes';
+
+    return $self->_munge_perl($file) if $file->name =~ /\.(?:pm|pl|t)$/i;
     return $self->_munge_perl($file) if $file->content =~ /^#!(?:.*)perl(?:$|\s)/;
     return;
 }
@@ -32,60 +34,49 @@ sub munge_file {
 #
 
 sub _munge_perl {
-  my ($self, $file) = @_;
+    my ( $self, $file ) = @_;
 
-  my @copyright = (
-    '',
-    "This file is part of " . $self->zilla->name,
-    '',
-    split(/\n/, $self->zilla->license->notice),
-    '',
-  );
+    my @copyright = (
+        '', "This file is part of " . $self->zilla->name,
+        '', split( /\n/, $self->zilla->license->notice ), '',
+    );
 
-  my @copyright_comment = map { length($_) ? "# $_" : '#' } @copyright;
+    my @copyright_comment = map { length($_) ? "# $_" : '#' } @copyright;
 
-  my $content = $file->content;
+    my $content = $file->content;
 
-  my $doc = PPI::Document->new(\$content)
-    or croak( PPI::Document->errstr );
+    my $doc = PPI::Document->new( \$content )
+      or croak( PPI::Document->errstr );
 
-  my $comments = $doc->find('PPI::Token::Comment');
+    my $comments = $doc->find('PPI::Token::Comment');
 
-  if ( ref($comments) eq 'ARRAY' ) {
-    foreach my $c ( @{ $comments } ) {
-      if ( $c =~ /^(\s*)(\#\s+COPYRIGHT\b)$/xms ) {
-        my ( $ws, $comment ) =  ( $1, $2 );
-        my $code = join( "\n", map { "$ws$_" } @copyright_comment );
-        $c->set_content("$code\n");
-        $self->log_debug("Added copyright to " . $file->name);
-        last;
-      }
+    if ( ref($comments) eq 'ARRAY' ) {
+        foreach my $c ( @{$comments} ) {
+            if ( $c =~ /^(\s*)(\#\s+COPYRIGHT\b)$/xms ) {
+                my ( $ws, $comment ) = ( $1, $2 );
+                my $code = join( "\n", map { "$ws$_" } @copyright_comment );
+                $c->set_content("$code\n");
+                $self->log_debug( "Added copyright to " . $file->name );
+                last;
+            }
+        }
+        $file->content( $doc->serialize );
     }
-    $file->content( $doc->serialize );
-  }
 
-  return;
+    return;
 }
 
 __PACKAGE__->meta->make_immutable;
 no Moose;
 1;
 
-#
-# This file is part of Dist-Zilla-Plugin-InsertCopyright
-#
-# This software is Copyright (c) 2011 by David Golden.
-#
-# This is free software, licensed under:
-#
-#   The Apache License, Version 2.0, January 2004
-#
+# COPYRIGHT
 
 __END__
 
 =pod
 
-=encoding utf-8
+=encoding UTF-8
 
 =head1 NAME
 
@@ -93,7 +84,7 @@ Dist::Zilla::Plugin::InsertCopyright - Insert copyright statement into source co
 
 =head1 VERSION
 
-version 0.002
+version 0.003
 
 =head1 SYNOPSIS
 
@@ -120,8 +111,6 @@ I wrote this to let me put copyright statements at the end of my code to keep
 line numbers of code consistent between the generated distribution and the
 repository source.  See L<Dist::Zilla::Plugin::OurPkgVersion> for another
 useful plugin that preserves line numbering.
-
-=encoding utf8
 
 =for Pod::Coverage munge_file
 
@@ -157,7 +146,7 @@ L<Dist::Zilla::Plugin::Prepender>
 =head2 Bugs / Feature Requests
 
 Please report any bugs or feature requests through the issue tracker
-at L<https://github.com/dagolden/dist-zilla-plugin-insertcopyright/issues>.
+at L<https://github.com/dagolden/Dist-Zilla-Plugin-InsertCopyright/issues>.
 You will be notified automatically of any progress on your issue.
 
 =head2 Source Code
@@ -165,9 +154,9 @@ You will be notified automatically of any progress on your issue.
 This is open source software.  The code repository is available for
 public review and contribution under the terms of the license.
 
-L<https://github.com/dagolden/dist-zilla-plugin-insertcopyright>
+L<https://github.com/dagolden/Dist-Zilla-Plugin-InsertCopyright>
 
-  git clone git://github.com/dagolden/dist-zilla-plugin-insertcopyright.git
+  git clone https://github.com/dagolden/Dist-Zilla-Plugin-InsertCopyright.git
 
 =head1 AUTHOR
 

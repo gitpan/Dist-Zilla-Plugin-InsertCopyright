@@ -1,5 +1,17 @@
 Revision history for Dist-Zilla-Plugin-InsertCopyright
 
+0.003     2014-02-23 11:45:38-05:00 America/New_York
+
+    [FIXED]
+
+    - Is now file encoding aware for Dist::Zilla 5+
+
+    [CHANGED]
+
+    - Uses Path::Tiny instead of Path::Class
+
+    - Modernized distribution packaging layout
+
 0.002     2013-08-21 18:54:37 America/New_York
 
     [FIXED]

@@ -4,7 +4,7 @@
       "David Golden <dagolden@cpan.org>"
    ],
    "dynamic_config" : 0,
-   "generated_by" : "Dist::Zilla version 4.300035, CPAN::Meta::Converter version 2.132140",
+   "generated_by" : "Dist::Zilla version 5.013, CPAN::Meta::Converter version 2.133380",
    "license" : [
       "apache_2_0"
    ],
@@ -27,13 +27,21 @@
    "prereqs" : {
       "configure" : {
          "requires" : {
-            "ExtUtils::MakeMaker" : "6.30"
+            "ExtUtils::MakeMaker" : "6.17"
          }
       },
       "develop" : {
          "requires" : {
+            "Dist::Zilla" : "5.013",
+            "Dist::Zilla::Plugin::Encoding" : "0",
+            "Dist::Zilla::PluginBundle::DAGOLDEN" : "0.060",
+            "File::Spec" : "0",
+            "File::Temp" : "0",
+            "IO::Handle" : "0",
+            "IPC::Open3" : "0",
             "Pod::Coverage::TrustPod" : "0",
             "Test::CPAN::Meta" : "0",
+            "Test::More" : "0",
             "Test::Pod" : "1.41",
             "Test::Pod::Coverage" : "1.08"
          }
@@ -51,39 +59,41 @@
          }
       },
       "test" : {
+         "recommends" : {
+            "CPAN::Meta" : "0",
+            "CPAN::Meta::Requirements" : "2.120900"
+         },
          "requires" : {
-            "Capture::Tiny" : "0",
             "ExtUtils::MakeMaker" : "0",
             "File::Spec::Functions" : "0",
-            "File::Temp" : "0",
             "File::pushd" : "1.00",
             "List::Util" : "0",
-            "Path::Class" : "0",
+            "Path::Tiny" : "0",
             "Test::DZil" : "0",
             "Test::More" : "0.92",
-            "blib" : "0"
+            "version" : "0"
          }
       }
    },
    "provides" : {
       "Dist::Zilla::Plugin::InsertCopyright" : {
          "file" : "lib/Dist/Zilla/Plugin/InsertCopyright.pm",
-         "version" : "0.002"
+         "version" : "0.003"
       }
    },
    "release_status" : "stable",
    "resources" : {
       "bugtracker" : {
-         "web" : "https://github.com/dagolden/dist-zilla-plugin-insertcopyright/issues"
+         "web" : "https://github.com/dagolden/Dist-Zilla-Plugin-InsertCopyright/issues"
       },
-      "homepage" : "https://metacpan.org/release/Dist-Zilla-Plugin-InsertCopyright",
+      "homepage" : "https://github.com/dagolden/Dist-Zilla-Plugin-InsertCopyright",
       "repository" : {
          "type" : "git",
-         "url" : "git://github.com/dagolden/dist-zilla-plugin-insertcopyright.git",
-         "web" : "https://github.com/dagolden/dist-zilla-plugin-insertcopyright"
+         "url" : "https://github.com/dagolden/Dist-Zilla-Plugin-InsertCopyright.git",
+         "web" : "https://github.com/dagolden/Dist-Zilla-Plugin-InsertCopyright"
       }
    },
-   "version" : "0.002",
+   "version" : "0.003",
    "x_authority" : "cpan:DAGOLDEN",
    "x_contributors" : [
       "Jean-Damien Durand <jeandamiendurand@free.fr>"
