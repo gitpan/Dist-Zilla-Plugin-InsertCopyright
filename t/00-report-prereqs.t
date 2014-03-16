@@ -50,7 +50,7 @@ my $static_prereqs = do { my $x = {
                       },
        'develop' => {
                       'requires' => {
-                                      'Dist::Zilla' => '5.013',
+                                      'Dist::Zilla' => '5.014',
                                       'Dist::Zilla::Plugin::Encoding' => '0',
                                       'Dist::Zilla::PluginBundle::DAGOLDEN' => '0.060',
                                       'File::Spec' => '0',
@@ -68,6 +68,7 @@ my $static_prereqs = do { my $x = {
                       'requires' => {
                                       'Carp' => '0',
                                       'Dist::Zilla::Role::FileMunger' => '0',
+                                      'Dist::Zilla::Role::PPI' => '0',
                                       'Moose' => '0',
                                       'PPI::Document' => '0',
                                       'perl' => '5.008001',
