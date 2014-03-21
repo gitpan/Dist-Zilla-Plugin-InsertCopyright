@@ -3,7 +3,7 @@ NAME
     source code files
 
 VERSION
-    version 0.004
+    version 0.005
 
 SYNOPSIS
     In your dist.ini:
@@ -59,8 +59,10 @@ SUPPORT
 AUTHOR
     David Golden <dagolden@cpan.org>
 
-CONTRIBUTOR
-    Jean-Damien Durand <jeandamiendurand@free.fr>
+CONTRIBUTORS
+    *   Jean-Damien Durand <jeandamiendurand@free.fr>
+
+    *   Keedi Kim <keedi.k@gmail.com>
 
 COPYRIGHT AND LICENSE
     This software is Copyright (c) 2011 by David Golden.

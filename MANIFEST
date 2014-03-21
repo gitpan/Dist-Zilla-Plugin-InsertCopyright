@@ -16,6 +16,7 @@ dist.ini
 lib/Dist/Zilla/Plugin/InsertCopyright.pm
 perlcritic.rc
 t/00-report-prereqs.t
+t/encode.t
 t/insertcopyright.t
 tidyall.ini
 xt/author/00-compile.t

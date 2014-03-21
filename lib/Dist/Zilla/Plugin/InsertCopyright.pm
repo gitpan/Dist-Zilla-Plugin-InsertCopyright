@@ -5,7 +5,7 @@ use utf8;
 
 package Dist::Zilla::Plugin::InsertCopyright;
 # ABSTRACT: Insert copyright statement into source code files
-our $VERSION = '0.004'; # VERSION
+our $VERSION = '0.005'; # VERSION
 
 use PPI::Document;
 use Moose;
@@ -77,7 +77,7 @@ sub _munge_perl {
                 last;
             }
         }
-        $file->content( $doc->serialize );
+        $self->save_ppi_document_to_file( $doc, $file );
     }
 
     return;
@@ -101,7 +101,7 @@ Dist::Zilla::Plugin::InsertCopyright - Insert copyright statement into source co
 
 =head1 VERSION
 
-version 0.004
+version 0.005
 
 =head1 SYNOPSIS
 
@@ -179,9 +179,19 @@ L<https://github.com/dagolden/Dist-Zilla-Plugin-InsertCopyright>
 
 David Golden <dagolden@cpan.org>
 
-=head1 CONTRIBUTOR
+=head1 CONTRIBUTORS
+
+=over 4
+
+=item *
 
 Jean-Damien Durand <jeandamiendurand@free.fr>
+
+=item *
+
+Keedi Kim <keedi.k@gmail.com>
+
+=back
 
 =head1 COPYRIGHT AND LICENSE
 

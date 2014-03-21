@@ -1,5 +1,11 @@
 Revision history for Dist-Zilla-Plugin-InsertCopyright
 
+0.005     2014-03-21 06:15:21-04:00 America/New_York
+
+    [FIXED]
+
+    - Fixed encoding problems munging UTF-8 files (reported by Keedi Kim)
+
 0.004     2014-03-16 19:33:26+01:00 Europe/Paris
 
     [CHANGED]

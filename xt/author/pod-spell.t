@@ -20,6 +20,9 @@ dagolden
 Jean
 Durand
 jeandamiendurand
+Keedi
+Kim
+keedi
 lib
 Dist
 Zilla

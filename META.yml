@@ -31,7 +31,7 @@ no_index:
 provides:
   Dist::Zilla::Plugin::InsertCopyright:
     file: lib/Dist/Zilla/Plugin/InsertCopyright.pm
-    version: '0.004'
+    version: '0.005'
 requires:
   Carp: '0'
   Dist::Zilla::Role::FileMunger: '0'
@@ -46,7 +46,8 @@ resources:
   bugtracker: https://github.com/dagolden/Dist-Zilla-Plugin-InsertCopyright/issues
   homepage: https://github.com/dagolden/Dist-Zilla-Plugin-InsertCopyright
   repository: https://github.com/dagolden/Dist-Zilla-Plugin-InsertCopyright.git
-version: '0.004'
+version: '0.005'
 x_authority: cpan:DAGOLDEN
 x_contributors:
   - 'Jean-Damien Durand <jeandamiendurand@free.fr>'
+  - 'Keedi Kim <keedi.k@gmail.com>'
